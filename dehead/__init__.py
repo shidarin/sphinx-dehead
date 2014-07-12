@@ -107,9 +107,9 @@ __author_email__ = "sean@grenadehop.com"
 __copyright__ = "Copyright 2014, Sean Wallitsch"
 __credits__ = ["Sean Wallitsch", ]
 __license__ = "MIT"
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 __module_name__ = "dehead"
-__short_desc__ = "A script to extract div's with class of 'section' from HTML"
+__short_desc__ = "A script to extract the main div section element from HTML"
 __status__ = "Development"
 __url__ = "http://github.com/shidarin/dehead"
 
@@ -179,6 +179,11 @@ def main():
 
         if section:
             destination = os.path.join(args.destination, html_file)
+
+            # Remove master heading, since we'll be including it elsewhere.
+            title = section.find('h1')
+            if title:
+                title.extract()
 
             print("Writing file: {0}".format(destination))
             with codecs.open(destination, 'wb', 'utf-8') as export:
