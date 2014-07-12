@@ -75,6 +75,7 @@ from __future__ import print_function
 
 # Standard Imports
 from argparse import ArgumentParser
+import codecs
 from glob import glob
 import os
 
@@ -150,16 +151,19 @@ def main():
     """Main dehead script entry"""
     args = _parse_args()
 
+    if not os.path.exists(args.destination):
+        os.makedirs(args.destination)
+
     for html_file in _get_input_files(args.input_files):
-        with open(html_file, 'rb') as html:
-            print("Reading file: {0}".format(html_file))
+        print("Reading file: {0}".format(html_file))
+        with codecs.open(html_file, 'rb', 'utf-8') as html:
             soup = bs4.BeautifulSoup(html.read())
 
         section = soup.find('div', {'class': 'section'})
         destination = os.path.join(args.destination, html_file)
 
-        with open(destination, 'wb') as export:
-            print("Writing file: {0}".format(destination))
+        print("Writing file: {0}".format(destination))
+        with codecs.open(destination, 'wb', 'utf-8') as export:
             export.write(section.prettify())
 
 # =============================================================================
