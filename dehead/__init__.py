@@ -93,7 +93,7 @@ __credits__ = ["Sean Wallitsch", ]
 __license__ = "MIT"
 __version__ = "0.1"
 __module_name__ = "dehead"
-__short_desc__ = "A script to extract `<div class='section'>` from HTML"
+__short_desc__ = "A script to extract div's with class of 'section' from HTML"
 __status__ = "Development"
 __url__ = "http://github.com/shidarin/dehead"
 
