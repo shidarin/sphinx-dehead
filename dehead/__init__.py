@@ -70,6 +70,14 @@ License
 # IMPORTS
 # =============================================================================
 
+# Future Imports
+from __future__ import print_function
+
+# Standard Imports
+from argparse import ArgumentParser
+from glob import glob
+import os
+
 # Third Party Imports
 import bs4
 
@@ -100,6 +108,70 @@ __all__ = [
 # PRIVATE FUNCTIONS
 # =============================================================================
 
+
+def _get_input_files(input_arg):
+    """Returns glob output of `input_arg`"""
+    # Just grab any files specified, don't mess with provided patterns.
+    files = glob(input_arg)
+
+    # But only accept files that end in html.
+    return [html_file for html_file in files if html_file.endswith('html')]
+
+# =============================================================================
+
+
+def _parse_args():
+    """Uses argparse to parse command line arguments"""
+    parser = ArgumentParser()
+    parser.add_argument(
+        "input_files",
+        help="the file(s) to be converted. Will do glob style pattern matching"
+    )
+    parser.add_argument(
+        "-d",
+        "--destination",
+        help="specify an output directory to save converted files to. If not "
+             "provided will default to ./dehead_output/"
+    )
+
+    args = parser.parse_args()
+
+    if not args.destination:
+        args.destination = './dehead_output/'
+
+    return args
+
 # =============================================================================
 # PUBLIC FUNCTIONS
 # =============================================================================
+
+
+def main():
+    """Main dehead script entry"""
+    args = _parse_args()
+
+    for html_file in _get_input_files(args.input_files):
+        with open(html_file, 'rb') as html:
+            print("Reading file: {0}".format(html_file))
+            soup = bs4.BeautifulSoup(html.read())
+
+        section = soup.find('div', {'class': 'section'})
+        destination = os.path.join(args.destination, html_file)
+
+        with open(destination, 'wb') as export:
+            print("Writing file: {0}".format(destination))
+            export.write(section.prettify())
+
+# =============================================================================
+# RUN
+# =============================================================================
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as err:
+        import traceback
+        print('Unexpected error encountered:')
+        print(err)
+        print(traceback.format_exc())
+        raw_input('Press enter key to exit')
