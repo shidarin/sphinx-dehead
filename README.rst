@@ -21,11 +21,13 @@ dehead takes a glob style input parameter, and an optional output directory.
 
 For example, this will dehead every HTML file in the current directory, and
 save it to the default output directory, `dehead_output/`
+
 .. code-block:: console
 
     $ dehead './'
 
 While this will save it in the sibling `_docs` directory:
+
 .. code-block:: console
 
     $ dehead './' -d ../_docs/
