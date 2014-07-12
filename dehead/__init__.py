@@ -180,6 +180,11 @@ def main():
         if section:
             destination = os.path.join(args.destination, html_file)
 
+            # Remove master heading, since we'll be including it elsewhere.
+            title = section.find('h1')
+            if title:
+                title.extract()
+
             print("Writing file: {0}".format(destination))
             with codecs.open(destination, 'wb', 'utf-8') as export:
                 export.write(section.prettify())
