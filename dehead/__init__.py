@@ -32,6 +32,22 @@ While this will save it in the sibling `_docs` directory:
 
     $ dehead './' -d ../_docs/
 
+Installation
+------------
+
+dehead can be installed with pip:
+
+.. code-block:: console
+
+    $ pip install dehead
+
+or by cloning the repository, and from the root directory calling:
+
+.. code-block:: console
+
+    $ python setup.py install
+
+
 Public Functions
 ----------------
 
@@ -91,7 +107,7 @@ __author_email__ = "sean@grenadehop.com"
 __copyright__ = "Copyright 2014, Sean Wallitsch"
 __credits__ = ["Sean Wallitsch", ]
 __license__ = "MIT"
-__version__ = "0.1"
+__version__ = "0.1.1"
 __module_name__ = "dehead"
 __short_desc__ = "A script to extract div's with class of 'section' from HTML"
 __status__ = "Development"
