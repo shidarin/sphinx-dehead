@@ -160,11 +160,15 @@ def main():
             soup = bs4.BeautifulSoup(html.read())
 
         section = soup.find('div', {'class': 'section'})
-        destination = os.path.join(args.destination, html_file)
 
-        print("Writing file: {0}".format(destination))
-        with codecs.open(destination, 'wb', 'utf-8') as export:
-            export.write(section.prettify())
+        if section:
+            destination = os.path.join(args.destination, html_file)
+
+            print("Writing file: {0}".format(destination))
+            with codecs.open(destination, 'wb', 'utf-8') as export:
+                export.write(section.prettify())
+        else:
+            print("No 'section' found in file: {0}".format(html_file))
 
 # =============================================================================
 # RUN
