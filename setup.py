@@ -213,7 +213,7 @@ setup(
 
     # List run-time dependencies here.  These will be installed by pip when your
     # project is installed.
-    install_requires=['beautifulsoup4'],
+    install_requires=['argparse', 'beautifulsoup4'],
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these

@@ -32,6 +32,21 @@ While this will save it in the sibling `_docs` directory:
 
     $ dehead './' -d ../_docs/
 
+Installation
+------------
+
+dehead can be installed with pip:
+
+.. code-block:: console
+
+    $ pip install dehead
+
+or by cloning the repository, and from the root directory calling:
+
+.. code-block:: console
+
+    $ python setup.py install
+
 License
 -------
 
