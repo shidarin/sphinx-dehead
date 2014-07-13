@@ -142,7 +142,7 @@ def _get_input_files(input_arg):
 
 def _parse_args():
     """Uses argparse to parse command line arguments"""
-    parser = ArgumentParser()
+    parser = ArgumentParser(description=__short_desc__)
     parser.add_argument(
         "input_files",
         help="the file(s) to be converted. Will do glob style pattern matching"
