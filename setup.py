@@ -57,7 +57,7 @@ import re
 # ==============================================================================
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-MAIN_FILE = os.path.join(HERE, 'dehead', '__init__.py')
+MAIN_FILE = os.path.join(HERE, 'sphinx_dehead', '__init__.py')
 
 # Get the long description from the relevant file
 with codecs.open('README.rst', encoding='utf-8') as readme_file:
@@ -229,7 +229,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'dehead=dehead:main',
+            'sphinx-dehead=sphinx_dehead:main',
         ],
     },
 )
