@@ -110,11 +110,11 @@ __author_email__ = "sean@grenadehop.com"
 __copyright__ = "Copyright 2014, Sean Wallitsch"
 __credits__ = ["Sean Wallitsch", ]
 __license__ = "MIT"
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 __module_name__ = "sphinx-dehead"
 __short_desc__ = "A script to extract the main div section element from HTML"
 __status__ = "Development"
-__url__ = "http://github.com/shidarin/dehead"
+__url__ = "http://github.com/shidarin/sphinx-dehead"
 
 # =============================================================================
 # EXPORTS
