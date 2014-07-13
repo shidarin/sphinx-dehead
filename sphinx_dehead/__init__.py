@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-dehead
-======
+sphinx-dehead
+=============
 
 - **Author:** Sean Wallitsch
 - **Email:** sean@grenadehop.com
@@ -19,27 +19,30 @@ Developed for including Sphinx built HTML documentation in an Octopress blog.
 Usage
 -----
 
-dehead takes a glob style input parameter, and an optional output directory.
+sphinx-dehead takes a glob style input parameter, and an optional output
+directory.
 
 For example, this will dehead every HTML file in the current directory, and
 save it to the default output directory, `dehead_output/`
+
 .. code-block:: console
 
-    $ dehead './'
+    $ sphinx-dehead './*.html'
 
 While this will save it in the sibling `_docs` directory:
+
 .. code-block:: console
 
-    $ dehead './' -d ../_docs/
+    $ sphinx-dehead './*.html' -d ../_docs/
 
 Installation
 ------------
 
-dehead can be installed with pip:
+sphinx-dehead can be installed with pip:
 
 .. code-block:: console
 
-    $ pip install dehead
+    $ pip install sphinx-dehead
 
 or by cloning the repository, and from the root directory calling:
 
@@ -59,7 +62,7 @@ License
 
 The MIT License (MIT)
 
-dehead
+sphinx-dehead
 Copyright (c) 2014 By Sean Wallitsch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -107,11 +110,11 @@ __author_email__ = "sean@grenadehop.com"
 __copyright__ = "Copyright 2014, Sean Wallitsch"
 __credits__ = ["Sean Wallitsch", ]
 __license__ = "MIT"
-__version__ = "0.2.0"
-__module_name__ = "dehead"
+__version__ = "0.2.1"
+__module_name__ = "sphinx-dehead"
 __short_desc__ = "A script to extract the main div section element from HTML"
 __status__ = "Development"
-__url__ = "http://github.com/shidarin/dehead"
+__url__ = "http://github.com/shidarin/sphinx-dehead"
 
 # =============================================================================
 # EXPORTS
@@ -139,7 +142,7 @@ def _get_input_files(input_arg):
 
 def _parse_args():
     """Uses argparse to parse command line arguments"""
-    parser = ArgumentParser()
+    parser = ArgumentParser(description=__short_desc__)
     parser.add_argument(
         "input_files",
         help="the file(s) to be converted. Will do glob style pattern matching"
